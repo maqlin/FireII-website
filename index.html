@@ -3,21 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>satellites distribution</title>
+    <title>FireII simulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .video-container {
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .video-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #007bff;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .video-title:hover {
+            text-decoration: underline;
+        }
+        video {
+            width: 100%;
+            max-width: 600px;
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>MP4 文件展示</h1>
+    <h1>FireII </h1>
 
-    <video width="320" height="240" controls>
-        <source src="m12i.mp4" type="video/mp4">
-        您的浏览器不支持视频标签。
-    </video>
+    <!-- 视频 1 -->
+    <div class="video-container">
+        <div class="video-title" onclick="toggleVideo('video1')">m12i</div>
+        <video id="video1" controls>
+            <source src="m12i_2d_animation.mp4" type="video/mp4">
+            您的浏览器不支持视频标签。
+        </video>
+    </div>
 
-    <video width="320" height="240" controls>
-        <source src="m12m.mp4" type="video/mp4">
-        您的浏览器不支持视频标签。
-    </video>
+    <!-- 视频 2 -->
+    <div class="video-container">
+        <div class="video-title" onclick="toggleVideo('video2')">m12m</div>
+        <video id="video2" controls>
+            <source src="m12i_2d_animation.mp4" type="video/mp4">
+            您的浏览器不支持视频标签。
+        </video>
+    </div>
 
-    <!-- 继续添加其他 MP4 文件 -->
+
+    <!-- 示例：视频 3 -->
+    <div class="video-container">
+        <div class="video-title" onclick="toggleVideo('video3')">m12f</div>
+        <video id="video3" controls>
+            <source src="m12f_2d_animation.mp4" type="video/mp4">
+            您的浏览器不支持视频标签。
+        </video>
+    </div>
+
+    <!-- 视频 4 -->
+    <div class="video-container">
+        <div class="video-title" onclick="toggleVideo('video4')">m12b</div>
+        <video id="video4" controls>
+            <source src="m12b_2d_animation.mp4" type="video/mp4">
+            您的浏览器不支持视频标签。
+        </video>
+    </div>
+
+    <!-- 继续添加视频 5 到 14 -->
+
+    <script>
+        // JavaScript 函数：切换视频显示/隐藏
+        function toggleVideo(videoId) {
+            var video = document.getElementById(videoId);
+            if (video.style.display === "none") {
+                // 隐藏所有视频
+                var allVideos = document.querySelectorAll('video');
+                allVideos.forEach(function(v) {
+                    v.style.display = "none";
+                    v.pause(); // 暂停所有视频
+                });
+                // 显示当前视频
+                video.style.display = "block";
+                video.play(); // 自动播放当前视频
+            } else {
+                video.style.display = "none";
+                video.pause(); // 暂停当前视频
+            }
+        }
+    </script>
 </body>
 </html>
+
+
